@@ -27,10 +27,10 @@ export default function RootLayout({
             <Container className='h-screen'>
               <Header />
               <Box className='flex gap-2 h-[calc(100vh-5rem)]'>
-                <Box className='w-1/4 bg-red-50 py-1 px-2'>
+                <Box className='w-1/5 bg-red-50 py-1 px-2'>
                   <Sidebar />
                 </Box>
-                <Box className='w-full bg-green-100 py-1 px-2'>{children}</Box>
+                <Box className='w-4/5 bg-green-100/70 py-1 px-2'>{children}</Box>
               </Box>
             </Container>
           </ThemeProvider>
