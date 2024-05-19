@@ -4,6 +4,9 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../theme";
+import { Box, Container, Stack, Link, Typography } from "@mui/material";
+import Header from "@/components/header";
+import Sidebar from "@/components/sidebar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +24,15 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            {children}
+            <Container className='h-screen'>
+              <Header />
+              <Box className='flex gap-2 h-[calc(100vh-5rem)]'>
+                <Box className='w-1/4 bg-red-50 py-1 px-2'>
+                  <Sidebar />
+                </Box>
+                <Box className='w-full bg-green-100 py-1 px-2'>{children}</Box>
+              </Box>
+            </Container>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
