@@ -28,7 +28,7 @@ export default async function ClientsPage() {
             </TableHead>
             <TableBody>
               {data.recordset.map((client) => (
-                <TableRow key={client.id} className='odd:bg-gray-200'>
+                <TableRow key={client.id} className='odd:bg-gray-100'>
                   <TableCell align='right'>{client.id}</TableCell>
                   <TableCell align='right'>{client.second_name}</TableCell>
                   <TableCell align='right'>{client.name}</TableCell>

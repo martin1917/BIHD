@@ -20,27 +20,27 @@ const menuItems: MenuItem[] = [
   {
     title: "Клиенты",
     path: "/clients",
-    Icon: (props: any) => <PeopleIcon {...props} />,
+    Icon: () => <PeopleIcon />,
   },
   {
     title: "Туры",
     path: "/tours",
-    Icon: (props: any) => <TourIcon {...props} />,
+    Icon: () => <TourIcon />,
   },
   {
     title: "Заявки",
     path: "/requests",
-    Icon: (props: any) => <PostAddIcon {...props} />,
+    Icon: () => <PostAddIcon />,
   },
   {
     title: "Отели",
     path: "/hotels",
-    Icon: (props: any) => <HotelIcon {...props} />,
+    Icon: () => <HotelIcon />,
   },
   {
     title: "Статистика",
     path: "/stats",
-    Icon: (props: any) => <AssessmentIcon {...props} />,
+    Icon: () => <AssessmentIcon />,
   },
 ];
 

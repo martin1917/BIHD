@@ -8,4 +8,5 @@ export interface TourEntity {
   price_sale: number;
   date_start: Date;
   date_end: Date;
+  isActive: number;
 }
