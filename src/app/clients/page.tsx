@@ -1,19 +1,27 @@
-import { dbPool } from "@/lib/db";
-import { ClientEntity } from "@/types/client";
+import { getAllClients } from "@/actions/db-clients";
 import * as utils from "@/utils";
-import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import {
+  Box,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 
 export default async function ClientsPage() {
-  const conn = await dbPool.connect();
-  const data = await conn.query<ClientEntity[]>("select * from Client");
+  const clients = await getAllClients();
 
   return (
     <Box className='p-1 h-full w-full overflow-auto'>
-      <Box className='w-max my-0 mx-auto'>
-        <Box className='mb-3'>
-          Общее количество клиентов: <span className='font-bold'>{data.recordset.length}</span>
-        </Box>
-        <TableContainer component={Paper} elevation={4}>
+      <Box>
+        <Typography variant='h6' className='mb-3'>
+          Клиенты (общее количество: <b>{clients.length}</b> )
+        </Typography>
+        <TableContainer component={Paper} elevation={5} className='w-max'>
           <Table>
             <TableHead>
               <TableRow>
@@ -27,7 +35,7 @@ export default async function ClientsPage() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.recordset.map((client) => (
+              {clients.map((client) => (
                 <TableRow key={client.id} className='odd:bg-gray-100'>
                   <TableCell align='right'>{client.id}</TableCell>
                   <TableCell align='right'>{client.second_name}</TableCell>

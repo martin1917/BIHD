@@ -4,3 +4,5 @@ export interface FeedbackEntity {
   mark: number;
   comment: string;
 }
+
+export type AddFeedback = Omit<FeedbackEntity, "id">;

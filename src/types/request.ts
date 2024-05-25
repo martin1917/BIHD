@@ -6,3 +6,12 @@ export interface RequestEntity {
   request_status_id: number;
   date: Date;
 }
+
+export interface RequestFull {
+  id: number;
+  tourId: number;
+  clientFIO: string;
+  touragentFIO: string;
+  requestStatus: string;
+  date: Date;
+}

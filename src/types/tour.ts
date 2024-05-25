@@ -10,3 +10,15 @@ export interface TourEntity {
   date_end: Date;
   isActive: number;
 }
+
+export interface TourWithDetailsEntity {
+  id: number;
+  country: string;
+  hotelName: string;
+  typeRoomName: string;
+  typeFoodName: string;
+  dateStart: Date;
+  dateEnd: Date;
+  pricePurchase: number;
+  priceSale: number;
+}

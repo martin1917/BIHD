@@ -1,5 +1,5 @@
 export function formatDate(fullDate: Date, separator: string = "/") {
-  const day = fullDate.getDay();
+  const day = fullDate.getDate();
   const month = fullDate.getMonth();
   const year = fullDate.getFullYear();
 

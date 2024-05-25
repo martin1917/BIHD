@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import theme from "../theme";
+import theme from "./theme";
 import { Box, Container, Stack, Link, Typography } from "@mui/material";
 import Header from "@/components/header";
 import Sidebar from "@/components/sidebar";
@@ -24,7 +24,7 @@ export default function RootLayout({
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Container className='h-screen'>
+            <Container className='h-screen max-w-[1600px]'>
               <Header />
               <Box className='flex gap-2 h-[calc(100vh-5rem)]'>
                 <Box className='w-1/5 bg-red-50 py-1 px-2'>

@@ -28,14 +28,14 @@ const menuItems: MenuItem[] = [
     Icon: () => <TourIcon />,
   },
   {
-    title: "Заявки",
-    path: "/requests",
-    Icon: () => <PostAddIcon />,
-  },
-  {
     title: "Отели",
     path: "/hotels",
     Icon: () => <HotelIcon />,
+  },
+  {
+    title: "Заявки",
+    path: "/requests",
+    Icon: () => <PostAddIcon />,
   },
   {
     title: "Статистика",
@@ -55,7 +55,7 @@ export default function Sidebar() {
           href={path}
           underline='none'
           className={clsx("flex gap-2 p-2 rounded-xl", {
-            "bg-gray-300": pathname === path,
+            "bg-gray-300": pathname.includes(path),
           })}
         >
           <Icon />

@@ -4,3 +4,8 @@ export interface HotelEntity {
   description: string;
   stars: number;
 }
+
+export type HotelWithStats = Omit<HotelEntity, "description"> & {
+  avgMark: number;
+  countOfFeedbacks: number;
+};
