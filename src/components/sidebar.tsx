@@ -55,7 +55,7 @@ export default function Sidebar() {
           href={path}
           underline='none'
           className={clsx("flex gap-2 p-2 rounded-xl", {
-            "bg-gray-300": pathname.includes(path),
+            "bg-gray-300": pathname === path,
           })}
         >
           <Icon />

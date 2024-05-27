@@ -20,6 +20,11 @@ export function RequestItem({ request, statuses }: { request: RequestFull; statu
     setIsUpdating(false);
   };
 
+  const handleCancel = () => {
+    setIsUpdating(false);
+    setStatus(request.requestStatus);
+  };
+
   return (
     <TableRow key={request.id} className={clsx("odd:bg-gray-100")}>
       <TableCell align='center'>{request.id}</TableCell>
@@ -47,7 +52,7 @@ export function RequestItem({ request, statuses }: { request: RequestFull; statu
                 Сохранить
               </Button>
             )}
-            <Button variant='outlined' size='small' onClick={() => setIsUpdating(false)}>
+            <Button variant='outlined' size='small' onClick={handleCancel}>
               Отмена
             </Button>
           </Box>
