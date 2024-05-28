@@ -3,6 +3,9 @@
 import { dbPool } from "@/lib/db";
 import { CountryOverwiew } from "@/types/country";
 import { TourEntity, TourWithDetailsEntity } from "@/types/tour";
+import { formatDateForMSSQL } from "@/utils";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export const getAllTours = async () => {
   const conn = await dbPool.connect();
@@ -59,4 +62,42 @@ export const getToursInfoForCountries = async () => {
     ORDER BY countTours DESC`);
 
   return data.recordset;
+};
+
+export const createTour = async ({
+  nameTour,
+  country,
+  hotelName,
+  typeRoom,
+  typeFood,
+  pricePurchase,
+  priceSale,
+  dateStart,
+  countDays,
+}: {
+  nameTour: string;
+  country: string;
+  hotelName: string;
+  typeRoom: string;
+  typeFood: string;
+  pricePurchase: number;
+  priceSale: number;
+  dateStart: Date;
+  countDays: number;
+}) => {
+  const conn = await dbPool.connect();
+  await conn.query(`
+    exec CreateTour
+      @NameTour = '${nameTour}',
+      @Country = '${country}',
+      @HotelName = '${hotelName}',
+      @TypeRoom = '${typeRoom}',
+      @TypeFood = '${typeFood}',
+      @PricePurchase = ${pricePurchase},
+      @PriceSale = ${priceSale},
+      @DateStart = '${formatDateForMSSQL(dateStart)}',
+      @CountDays = ${countDays}`);
+
+  revalidatePath("/tours");
+  redirect("/tours");
 };

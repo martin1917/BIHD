@@ -40,9 +40,12 @@ export default function ToursTable({ tours }: ToursTableProps) {
   return (
     <Box className='overflow-auto mr-1'>
       <TourInfoModal tourId={selectedTourId} open={modalIsOpen} handleClose={handleClose} />
-      <Box className='mb-4 py-2 flex justify-between'>
+      <Box className='mb-4 py-2 flex gap-20'>
         <TourFilter setTours={setTours} />
-        <Link component={NextLink} href={`/tourStats`} className='ml-5'>
+        <Link component={NextLink} href={`/tours/create`}>
+          <Button variant='contained'>Добавить новый тур</Button>
+        </Link>
+        <Link component={NextLink} href={`/tourStats`}>
           <Button variant='contained' size='small' className='text-[0.7rem] w-[12rem]'>
             Получить информация по турам для каждой страны
           </Button>
