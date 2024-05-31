@@ -3,19 +3,35 @@
 import { RequestFull } from "@/types/request";
 import { RequestStatusEntity } from "@/types/requestStatus";
 import { Box, Button, MenuItem, Select, TableCell, TableRow } from "@mui/material";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import * as utils from "@/utils";
 import clsx from "clsx";
-import { updateStatus } from "@/serverActions/db-requests";
+import { updateStatus, waitRequest } from "@/serverActions/db-requests";
 
-export function RequestItem({ request, statuses }: { request: RequestFull; statuses: RequestStatusEntity[] }) {
+export function RequestItem({
+  request,
+  statuses,
+  setError,
+}: {
+  request: RequestFull;
+  statuses: RequestStatusEntity[];
+  setError: Dispatch<SetStateAction<string>>;
+}) {
   const [status, setStatus] = useState(request.requestStatus);
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const handleSave = async (requestId: number) => {
     setIsDisabled(true);
-    await updateStatus(requestId, status);
+    if (status === "ОЖИДАНИЕ ОТ ТУРОПЕРАТОРА") {
+      const res = await waitRequest(requestId);
+      if (res) {
+        setError(res);
+        setStatus(request.requestStatus);
+      }
+    } else {
+      await updateStatus(requestId, status);
+    }
     setIsDisabled(false);
     setIsUpdating(false);
   };

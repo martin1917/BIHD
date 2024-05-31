@@ -30,6 +30,16 @@ export const updateStatus = async (requestsId: number, newStatus: string) => {
   );
 };
 
+export const waitRequest = async (requestsId: number) => {
+  const conn = await dbPool.connect();
+  try {
+    await conn.query(`exec ToWaitRequest @requestId = ${requestsId};`);
+    return null;
+  } catch (e: any) {
+    return e.message;
+  }
+};
+
 export const getStatsByCountries = async () => {
   const conn = await dbPool.connect();
   const data = await conn.query<CountryStats[]>(`
