@@ -34,3 +34,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+----
+
+## Тема: приложение учета и анализа заявок клиентов для сервиса турагентства  
+
+### Физическая схема БД (MS SQL Server)  
+![image](https://github.com/martin1917/BIHD/assets/63655028/ea7f30a5-88c7-4968-86ad-e6df60c8dcb9)  
+
+### Страница с турами  
+![image](https://github.com/martin1917/BIHD/assets/63655028/32c0b36e-c7d1-4d5d-995d-7e46bcb365bb)
+
+### Страница со сводной информацией по каждой стране
+![image](https://github.com/martin1917/BIHD/assets/63655028/d46be4da-6a33-4974-abe0-6c30db625235)
+
+### Страница с заявками
+![image](https://github.com/martin1917/BIHD/assets/63655028/561a66e8-81a2-4e3c-a284-4b6ac55e4b80)  
