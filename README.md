@@ -35,8 +35,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-----
-
 ## Тема: приложение учета и анализа заявок клиентов для сервиса турагентства  
 
 ### Физическая схема БД (MS SQL Server)  
@@ -50,3 +48,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### Страница с заявками
 ![image](https://github.com/martin1917/BIHD/assets/63655028/561a66e8-81a2-4e3c-a284-4b6ac55e4b80)  
+
+### Cтатистика по странам
+![image](https://github.com/martin1917/BIHD/assets/63655028/365d1e9c-bc65-4fc9-9b14-70ed960ba625)
+
+### статистика по клиентам  
+![image](https://github.com/martin1917/BIHD/assets/63655028/6da5701e-a212-425b-a6ff-5a169d917be4)
+
+### статистика по заявкам
+![image](https://github.com/martin1917/BIHD/assets/63655028/63def3d7-e250-428d-83ea-9c45abd03815)
+
+
